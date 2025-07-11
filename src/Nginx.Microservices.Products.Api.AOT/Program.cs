@@ -7,10 +7,12 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 var app = builder.Build();
 
-app.MapGet("/api/products", () => { 
-    return new List<Product>() {new(Guid.NewGuid(), "Some awasome product", int.MaxValue) };
+app.MapGet("/api/products", () =>
+{
+    return new List<Product>() { new(Guid.NewGuid(), "Some awasome product", int.MaxValue) };
 });
 
+app.Urls.Add("http://*:8001");
 app.Run();
 
 public record Product(Guid Id, string Name, int Quantity);
