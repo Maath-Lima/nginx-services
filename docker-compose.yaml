@@ -24,6 +24,13 @@ services:
             - network-bridge
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
+    users_api_balance:
+        build: ./src/Nginx.Microservices.Users.Api.AOT
+        container_name: container_users_api_balance
+        networks:
+            - network-bridge
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
 networks:
     network-bridge:
         driver: bridge
