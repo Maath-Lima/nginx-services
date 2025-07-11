@@ -11,6 +11,7 @@ app.MapGet("/api/users", () => {
     return new List<User>() { new("Some Name", "someemail@email.com") };
 });
 
+app.Urls.Add("http://*:8002");
 app.Run();
 
 public record User(string Name, string Email);
