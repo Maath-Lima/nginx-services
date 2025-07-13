@@ -7,8 +7,9 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 var app = builder.Build();
 
-app.MapGet("/api/products", () =>
+app.MapGet("/api/products", async () =>
 {
+    await Task.Delay(2000);
     return new List<Product>() { new(Guid.NewGuid(), "Some awasome product", int.MaxValue) };
 });
 
